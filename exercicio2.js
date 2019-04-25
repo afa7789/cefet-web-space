@@ -20,14 +20,21 @@ for (let b of buttonsNavigateEl){
 		let Galeria= div.querySelector("#slide")
 		let TVI = todasAsImagens.length //tamanhoVetorImagem
 		let i = 0
+		let imagemStringConcatenada 
 		//i=(i+1)%todasAsImagens.length
-		for( let imagem of todasAsImagens){		
-			if(Galeria.src === imagem){
-				if(butaoClicado.id == "antecessor"){
-					Galeria.src=todasAsImagens[((i-1)+TVI)%TVI]
+		for( let imagem of todasAsImagens){	
+			imagemStringConcatenada = servidorDasImagens+imagem
+			console.log(Galeria.src)	
+			console.log(imagemStringConcatenada)
+			console.log(Galeria.src === imagemStringConcatenada)
+			if(Galeria.src === imagemStringConcatenada){
+				if(butaoClicado.id == "anterior"){
+					Galeria.src = servidorDasImagens+todasAsImagens[((i-1)+TVI)%TVI]
+					break;
 				}
 				else{
-					Galeria.src=todasAsImagens[(i+1)%TVI]
+					Galeria.src = servidorDasImagens+todasAsImagens[(i+1)%TVI]
+					break;
 				}
 			}
 			i++
